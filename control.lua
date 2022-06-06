@@ -1,9 +1,9 @@
 script.on_event(defines.events.on_player_created, function(event)
     -- Configure local constants
-    local COLOR_GREEN = {0, 255, 0, 255}
-    local COLOR_RED = {255, 0, 0, 255}
-    local COLOR_WHITE = {255, 255, 255, 255}
-    local COLOR_YELLOW = {255, 255, 0, 255}
+    local COLOR_GREEN =  {  0, 255,   0, 255}
+    local COLOR_RED =    {255,   0,   0, 255}
+    local COLOR_WHITE =  {255, 255, 255, 255}
+    local COLOR_YELLOW = {255, 255,   0, 255}
 
     local ROBOT_TECHNOLOGY = {
         'worker-robots-speed-1',
