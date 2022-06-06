@@ -1,11 +1,11 @@
 script.on_event(defines.events.on_player_created, function(event)
-    -- configure some helpful locals
-    local color_blue = {0, 0, 255, 255}
-    local color_green = {0, 255, 0, 255}
-    local color_red = {255, 0, 0, 255}
-    local color_yellow = {255, 255, 0, 255}
+    -- Configure local constants
+    local COLOR_BLUE = {0, 0, 255, 255}
+    local COLOR_GREEN = {0, 255, 0, 255}
+    local COLOR_RED = {255, 0, 0, 255}
+    local COLOR_YELLOW = {255, 255, 0, 255}
 
-    local robot_technology = {
+    local ROBOT_TECHNOLOGY = {
         'worker-robots-speed-1',
         'worker-robots-speed-2',
         'worker-robots-speed-3',
@@ -16,39 +16,38 @@ script.on_event(defines.events.on_player_created, function(event)
         'worker-robots-storage-3'
     }
 
-    -- lookup player that was just created
+    -- Lookup connecting player and post startup
     local player = game.players[event.player_index]
-
-    player.print({"qsd-log-message.info-startup"}, color_blue)
+    player.print({"qsd-log-message.info-startup"}, COLOR_BLUE)
 
     -- Is the mod even enabled for this save?
     if not settings.startup["qsd-setting-mod-enabled"].value then
-        player.print({"qsd-log-message.warning-mod-disabled"}, color_yellow)
+        player.print({"qsd-log-message.warning-mod-disabled"}, COLOR_YELLOW)
         return
     end
 
-    -- and attempt to find that player's character
+    -- Attempt to find the player's character
     local character = player.character or player.cutscene_character
 
     if not character then
-        player.print({"qsd-log-message.error-no-character"}, color_red)
-        player.print({"qsd-log-message.error-failed-start"}, color_red)
+        player.print({"qsd-log-message.error-no-character"}, COLOR_RED)
+        player.print({"qsd-log-message.error-failed-start"}, COLOR_RED)
         return
     end
 
-    -- attempt to load the player character's inventory
+    -- Attempt to load the player character's inventory
     local inventory = character.get_main_inventory()
     if not inventory then
-        player.print({"qsd-log-message.error-no-inventory"}, color_red)
-        player.print({"qsd-log-message.error-failed-start"}, color_red)
+        player.print({"qsd-log-message.error-no-inventory"}, COLOR_RED)
+        player.print({"qsd-log-message.error-failed-start"}, COLOR_RED)
         return
     end
 
-    -- attempt to load the player character's armor invetory
+    -- Attempt to load the player character's armor inventory
     local armor_inventory = character.get_inventory(defines.inventory.character_armor)
     if not armor_inventory then
-        player.print({"qsd-log-message.error-no-armor-inventory"}, color_red)
-        player.print({"qsd-log-message.error-failed-start"}, color_red)
+        player.print({"qsd-log-message.error-no-armor-inventory"}, COLOR_RED)
+        player.print({"qsd-log-message.error-failed-start"}, COLOR_RED)
         return
     end
 
@@ -87,11 +86,11 @@ script.on_event(defines.events.on_player_created, function(event)
         new_gear.energy = new_gear.max_energy
     end
 
-    -- Place constuction bots into inventory
+    -- Place construction bots into inventory
     inventory.insert({name = "construction-robot", count = 200})
 
     -- The character's inventory is prepared.
-    player.print({"qsd-log-message.info-startup-invetory"}, color_blue)
+    player.print({"qsd-log-message.info-startup-invetory"}, COLOR_BLUE)
 
     -- Place a Spidertron and a Spidertron remote
     inventory.insert({name = "spidertron", count = 1})
@@ -100,8 +99,8 @@ script.on_event(defines.events.on_player_created, function(event)
     -- Find that Spidertron for configuration
     local spidertron = inventory.find_item_stack("spidertron")
     if not spidertron then
-        player.print({"qsd-log-message.error-no-spidertron"}, color_red)
-        player.print({"qsd-log-message.warning-partial-start"}, color_yellow)
+        player.print({"qsd-log-message.error-no-spidertron"}, COLOR_RED)
+        player.print({"qsd-log-message.warning-partial-start"}, COLOR_YELLOW)
         return
     end
     spidertron.create_grid()
@@ -120,13 +119,13 @@ script.on_event(defines.events.on_player_created, function(event)
     -- Should the technology be upgraded?
     if settings.startup["qsd-setting-research-enabled"].value then
         -- Upgrade worker robot speed and robot storage
-        for key, technology in ipairs(robot_technology) do
+        for key, technology in ipairs(ROBOT_TECHNOLOGY) do
             player.force.technologies[technology].researched = true
         end
     else
-        player.print({"qsd-log-message.warning-research-disabled"}, color_yellow)
+        player.print({"qsd-log-message.warning-research-disabled"}, COLOR_YELLOW)
     end
 
     -- You Dun There Start Em Up
-    player.print({"qsd-log-message.info-character-init"}, color_green)
+    player.print({"qsd-log-message.info-character-init"}, COLOR_GREEN)
 end)
