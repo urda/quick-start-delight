@@ -10,6 +10,12 @@ script.on_event(defines.events.on_player_created, function(event)
 
     player.print({"qsd-log-message.info-startup"}, color_blue)
 
+    -- Is the mod even enabled for this save?
+    if not settings.startup["qsd-setting-mod-enabled"].value then
+        player.print({"qsd-log-message.warning-mod-disabled"}, color_yellow)
+        return
+    end
+
     -- and attempt to find that player's character
     local character = player.character or player.cutscene_character
 
