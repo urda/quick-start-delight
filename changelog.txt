@@ -1,5 +1,26 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.0
-Date: 2022-XX-YY
-  Info:
-    - UNSTABLE pre-release
+Date: 2022-06-06
+
+  - UNSTABLE pre-release
+  - Offers settings to enable / disable the mod.
+  - Offers settings to enable / disable robot technology research perks.
+  - Configures player equipment with:
+    - Belt immunity equipment (1x)
+    - Exoskeleton (5x)
+    - Personal battery MK2 (4x)
+    - Personal roboport MK2 (4x)
+    - Portable fusion reactor (2x)
+    - Portable solar panel (3x)
+  - Configures a spidertron with equipment such that:
+    - Exoskeleton (1x)
+    - Personal battery MK2 (4x)
+    - Personal roboport MK2 (4x)
+    - Portable fusion reactor (2x)
+  - Places the following additional items in player inventory:
+    - Construction robot (200x)
+      - Half for the player, the other half for the spidertron
+    - Lamp (200x)
+    - Spidertron (1x)
+    - Spidertron Remote (1x)
+    - Steel Chest (50x)

@@ -81,8 +81,10 @@ script.on_event(defines.events.on_player_created, function(event)
         new_gear.energy = new_gear.max_energy
     end
 
-    -- Place construction bots into inventory
+    -- Place construction bots, and other items into inventory
     inventory.insert({name = "construction-robot", count = 200})
+    inventory.insert({name = "small-lamp", count = 200})
+    inventory.insert({name = "steel-chest", count = 50})
 
     -- The character's inventory is prepared
     player.print({"qsd-log-message.info-startup-inventory"}, COLOR_WHITE)
