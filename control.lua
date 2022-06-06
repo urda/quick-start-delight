@@ -5,6 +5,17 @@ script.on_event(defines.events.on_player_created, function(event)
     local color_red = {255, 0, 0, 255}
     local color_yellow = {255, 255, 0, 255}
 
+    local robot_technology = {
+        'worker-robots-speed-1',
+        'worker-robots-speed-2',
+        'worker-robots-speed-3',
+        'worker-robots-speed-4',
+        'worker-robots-speed-5',
+        'worker-robots-storage-1',
+        'worker-robots-storage-2',
+        'worker-robots-storage-3'
+    }
+
     -- lookup player that was just created
     local player = game.players[event.player_index]
 
@@ -102,6 +113,16 @@ script.on_event(defines.events.on_player_created, function(event)
 
     -- Place constuction bots into inventory
     inventory.insert({name = "construction-robot", count = 200})
+
+    -- Should the technology be upgraded?
+    if settings.startup["qsd-setting-research-enabled"].value then
+        -- Upgrade worker robot speed and robot storage
+        for key, technology in ipairs(robot_technology) do
+            player.force.technologies[technology].researched = true
+        end
+    else
+        player.print({"qsd-log-message.warning-research-disabled"}, color_yellow)
+    end
 
     -- You Dun There Start Em Up
     player.print({"qsd-log-message.info-character-init"}, color_green)
