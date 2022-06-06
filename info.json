@@ -1,0 +1,11 @@
+{
+    "name": "quick-start-delight",
+    "version": "0.1.0",
+    "title": "Quick Start Delight - A Factorio Quick Start Pack by Urda",
+    "author": "urda",
+    "homepage": "https://github.com/urda/quick-start-delight",
+    "contact": "foss@urda.engineering",
+    "factorio_version": "1.1",
+    "dependencies": ["base >= 1.1"],
+    "description": "This mod is for players who have beaten the game at least once!"
+}
