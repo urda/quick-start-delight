@@ -87,6 +87,12 @@ script.on_event(defines.events.on_player_created, function(event)
         new_gear.energy = new_gear.max_energy
     end
 
+    -- Place constuction bots into inventory
+    inventory.insert({name = "construction-robot", count = 200})
+
+    -- The character's inventory is prepared.
+    player.print({"qsd-log-message.info-startup-invetory"}, color_blue)
+
     -- Place a Spidertron and a Spidertron remote
     inventory.insert({name = "spidertron", count = 1})
     inventory.insert({name = "spidertron-remote", count = 1})
@@ -110,9 +116,6 @@ script.on_event(defines.events.on_player_created, function(event)
     spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {6, 4}})
     spidertron.grid.put({name = "battery-mk2-equipment", position = {8, 4}})
     spidertron.grid.put({name = "battery-mk2-equipment", position = {9, 4}})
-
-    -- Place constuction bots into inventory
-    inventory.insert({name = "construction-robot", count = 200})
 
     -- Should the technology be upgraded?
     if settings.startup["qsd-setting-research-enabled"].value then
