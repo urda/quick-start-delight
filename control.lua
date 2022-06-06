@@ -1,8 +1,8 @@
 script.on_event(defines.events.on_player_created, function(event)
     -- Configure local constants
-    local COLOR_BLUE = {0, 0, 255, 255}
     local COLOR_GREEN = {0, 255, 0, 255}
     local COLOR_RED = {255, 0, 0, 255}
+    local COLOR_WHITE = {255, 255, 255, 255}
     local COLOR_YELLOW = {255, 255, 0, 255}
 
     local ROBOT_TECHNOLOGY = {
@@ -18,7 +18,7 @@ script.on_event(defines.events.on_player_created, function(event)
 
     -- Lookup connecting player and post startup
     local player = game.players[event.player_index]
-    player.print({"qsd-log-message.info-startup"}, COLOR_BLUE)
+    player.print({"qsd-log-message.info-startup"}, COLOR_WHITE)
 
     -- Is the mod even enabled for this save?
     if not settings.startup["qsd-setting-mod-enabled"].value then
@@ -89,8 +89,8 @@ script.on_event(defines.events.on_player_created, function(event)
     -- Place construction bots into inventory
     inventory.insert({name = "construction-robot", count = 200})
 
-    -- The character's inventory is prepared.
-    player.print({"qsd-log-message.info-startup-invetory"}, COLOR_BLUE)
+    -- The character's inventory is prepared
+    player.print({"qsd-log-message.info-startup-inventory"}, COLOR_WHITE)
 
     -- Place a Spidertron and a Spidertron remote
     inventory.insert({name = "spidertron", count = 1})
@@ -116,12 +116,17 @@ script.on_event(defines.events.on_player_created, function(event)
     spidertron.grid.put({name = "battery-mk2-equipment", position = {8, 4}})
     spidertron.grid.put({name = "battery-mk2-equipment", position = {9, 4}})
 
+    -- The Spidertron is prepared
+    player.print({"qsd-log-message.info-startup-spidertron"}, COLOR_WHITE)
+
     -- Should the technology be upgraded?
     if settings.startup["qsd-setting-research-enabled"].value then
         -- Upgrade worker robot speed and robot storage
         for key, technology in ipairs(ROBOT_TECHNOLOGY) do
             player.force.technologies[technology].researched = true
         end
+
+        player.print({"qsd-log-message.info-startup-robot-technology"}, COLOR_WHITE)
     else
         player.print({"qsd-log-message.warning-research-disabled"}, COLOR_YELLOW)
     end
