@@ -58,10 +58,6 @@ script.on_event(defines.events.on_player_created, function(event)
     character.grid.put({name = "solar-panel-equipment", position = {8, 0}})
     character.grid.put({name = "solar-panel-equipment", position = {8, 1}})
     character.grid.put({name = "solar-panel-equipment", position = {9, 1}})
-    character.grid.put({name = "solar-panel-equipment", position = {8, 2}})
-    character.grid.put({name = "solar-panel-equipment", position = {9, 2}})
-    character.grid.put({name = "solar-panel-equipment", position = {8, 3}})
-    character.grid.put({name = "solar-panel-equipment", position = {9, 3}})
 
     -- Insert the rest of the equipment into the armor, track in list for powering up after
     local gear_to_power = {}
@@ -74,8 +70,7 @@ script.on_event(defines.events.on_player_created, function(event)
     table.insert(gear_to_power, character.grid.put({name = "exoskeleton-equipment", position = {2, 2}}))
     table.insert(gear_to_power, character.grid.put({name = "exoskeleton-equipment", position = {4, 2}}))
     table.insert(gear_to_power, character.grid.put({name = "exoskeleton-equipment", position = {6, 2}}))
-    table.insert(gear_to_power, character.grid.put({name = "battery-mk2-equipment", position = {8, 4}}))
-    table.insert(gear_to_power, character.grid.put({name = "battery-mk2-equipment", position = {9, 4}}))
+    table.insert(gear_to_power, character.grid.put({name = "exoskeleton-equipment", position = {8, 2}}))
     table.insert(gear_to_power, character.grid.put({name = "battery-mk2-equipment", position = {8, 6}}))
     table.insert(gear_to_power, character.grid.put({name = "battery-mk2-equipment", position = {9, 6}}))
     table.insert(gear_to_power, character.grid.put({name = "battery-mk2-equipment", position = {8, 8}}))
@@ -106,15 +101,21 @@ script.on_event(defines.events.on_player_created, function(event)
     spidertron.create_grid()
 
     -- Insert the Spidertron gear
-    spidertron.grid.put({name = "fusion-reactor-equipment", position = {0, 0}})
-    spidertron.grid.put({name = "fusion-reactor-equipment", position = {4, 0}})
-    spidertron.grid.put({name = "exoskeleton-equipment", position = {8, 0}})
-    spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {0, 4}})
-    spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {2, 4}})
-    spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {4, 4}})
-    spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {6, 4}})
-    spidertron.grid.put({name = "battery-mk2-equipment", position = {8, 4}})
-    spidertron.grid.put({name = "battery-mk2-equipment", position = {9, 4}})
+    local spider_gear_to_power = {}
+    table.insert(spider_gear_to_power, spidertron.grid.put({name = "fusion-reactor-equipment", position = {0, 0}}))
+    table.insert(spider_gear_to_power, spidertron.grid.put({name = "fusion-reactor-equipment", position = {4, 0}}))
+    table.insert(spider_gear_to_power, spidertron.grid.put({name = "exoskeleton-equipment", position = {8, 0}}))
+    table.insert(spider_gear_to_power, spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {0, 4}}))
+    table.insert(spider_gear_to_power, spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {2, 4}}))
+    table.insert(spider_gear_to_power, spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {4, 4}}))
+    table.insert(spider_gear_to_power, spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {6, 4}}))
+    table.insert(spider_gear_to_power, spidertron.grid.put({name = "battery-mk2-equipment", position = {8, 4}}))
+    table.insert(spider_gear_to_power, spidertron.grid.put({name = "battery-mk2-equipment", position = {9, 4}}))
+
+    -- "Well, you don't give a toy without batteries." - Spidertron Version
+    for key, spider_gear in ipairs(spider_gear_to_power) do
+        spider_gear.energy = spider_gear.max_energy
+    end
 
     -- The Spidertron is prepared
     player.print({"qsd-log-message.info-startup-spidertron"}, COLOR_WHITE)
