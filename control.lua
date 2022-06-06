@@ -94,19 +94,6 @@ script.on_event(defines.events.on_player_created, function(event)
     spidertron.grid.put({name = "battery-mk2-equipment", position = {8, 4}})
     spidertron.grid.put({name = "battery-mk2-equipment", position = {9, 4}})
 
-    -- i think it worked to HERE
-
-    -- spidertron CANNOT STORE ITEMS WHEN IT IS AN ITEM
-    --
-    -- -- Find the Spidertron's inventory and add construction bots
-    -- local spidertron_inventory = spidertron.get_inventory(defines.inventory.spider_trunk)
-    -- if not spidertron_inventory then
-    --     player.print({"qsd-log-message.error-no-spidertron-inventory"}, color_red)
-    --     player.print({"qsd-log-message.warning-partial-start"}, color_yellow)
-    --     return
-    -- end
-    -- spidertron_inventory.insert({name = "construction-robot", count = 100})
-
     -- Place constuction bots into inventory
     inventory.insert({name = "construction-robot", count = 200})
 
