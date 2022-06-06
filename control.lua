@@ -83,8 +83,8 @@ script.on_event(defines.events.on_player_created, function(event)
     table.insert(gear_to_power, character.grid.put({name = "battery-mk2-equipment", position = {9, 8}}))
 
     -- "Well, you don't give a toy without batteries."
-    for key, value in ipairs(gear_to_power) do
-        value.energy = value.max_energy
+    for key, new_gear in ipairs(gear_to_power) do
+        new_gear.energy = new_gear.max_energy
     end
 
     -- Place a Spidertron and a Spidertron remote
