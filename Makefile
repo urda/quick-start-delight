@@ -2,17 +2,23 @@
 # Variables
 ########################################################################################################################
 
-CLEAN_TARGETS = ./quick-start-delight*.zip
-MOD_ZIP_EXCLUDES := @exclude.lst
-MOD_ZIP_PREFIX := quick-start-delight
+CLEAN_TARGETS := ./quick-start-delight*.zip
+PROJECT_NAME := quick-start-delight
 SHELL := /bin/bash
 VERSION_REGEX := "([0-9]{1,}\.)+[0-9]{1,}"
 
 ########################################################################################################################
-# Dynamic Variables
+# Computed Variables
 ########################################################################################################################
 
 VERSION_ID := $(shell grep '"version"' ./info.json | egrep -o $(VERSION_REGEX))
+
+########################################################################################################################
+# Composite Variables
+########################################################################################################################
+
+MOD_FULLNAME := $(PROJECT_NAME)_$(VERSION_ID)
+MOD_ZIP_EXCLUDES := @$(PROJECT_NAME)/exclude.lst
 
 ########################################################################################################################
 # `make help` Needs to be first so it is ran when just `make` is called
@@ -30,13 +36,16 @@ help: # Show this help screen
 
 .PHONY: debug
 debug:
+	@echo 'MOD_FULLNAME .... $(MOD_FULLNAME)'
 	@echo 'SHELL ........... $(SHELL)'
 	@echo 'VERSION_ID ...... $(VERSION_ID)'
 	@echo 'VERSION_REGEX ... $(VERSION_REGEX)'
 
 .PHONY: build
 build: # Build the mod package
-	zip $(MOD_ZIP_PREFIX)_$(VERSION_ID).zip -r ./ -x $(MOD_ZIP_EXCLUDES)
+	cd .. && \
+	zip -v ./$(PROJECT_NAME)/$(MOD_FULLNAME).zip -r ./$(PROJECT_NAME) -x $(MOD_ZIP_EXCLUDES) && \
+	cd ./$(PROJECT_NAME)
 
 .PHONY: clean
 clean: # Clean the project directory.
