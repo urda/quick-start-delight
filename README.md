@@ -7,29 +7,31 @@ This mod is meant for players who have already beaten the game at least once.
 
 ** This is an UNSTABLE mod release! **
 
-- Configures player equipment with:
-  - Belt immunity equipment (1x)
-  - Exoskeleton (5x)
-  - Personal battery MK2 (4x)
-  - Personal roboport MK2 (4x)
-  - Portable fusion reactor (2x)
-  - Portable solar panel (3x)
+Configures player equipment with:
 
-- Configures a spidertron with equipment such that:
-  - Exoskeleton (1x)
-  - Personal battery MK2 (4x)
-  - Personal roboport MK2 (4x)
-  - Portable fusion reactor (2x)
+- Belt immunity equipment (1x)
+- Exoskeleton (5x)
+- Personal battery MK2 (4x)
+- Personal roboport MK2 (4x)
+- Portable fusion reactor (2x)
+- Portable solar panel (3x)
 
-- Places the following additional items in player inventory:
-  - Construction robot (200x)
-    - Half for the player, the other half for the spidertron
-  - Lamp (200x)
-  - Spidertron (1x)
-  - Spidertron Remote (1x)
-  - Steel Chest (50x)
+Configures a spidertron with equipment such that:
 
-- Completes related robot storaged and speed technology research.
+- Exoskeleton (1x)
+- Personal battery MK2 (4x)
+- Personal roboport MK2 (4x)
+- Portable fusion reactor (2x)
+
+Places the following additional items in player inventory:
+
+- Construction robot (200x) (Half for the player, the other half for the spidertron)
+- Lamp (200x)
+- Spidertron (1x)
+- Spidertron Remote (1x)
+- Steel Chest (50x)
+
+- Completes related robot storage and speed technology research.
 
 # Working on the mod
 
