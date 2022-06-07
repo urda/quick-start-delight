@@ -21,7 +21,7 @@ script.on_event(defines.events.on_player_created, function(event)
     player.print({"qsd-log-message.info-startup"}, COLOR_WHITE)
 
     -- Is the mod even enabled for this save?
-    if not settings.startup["qsd-setting-mod-enabled"].value then
+    if not settings.global["qsd-setting-mod-enabled"].value then
         player.print({"qsd-log-message.warning-mod-disabled"}, COLOR_YELLOW)
         return
     end
@@ -82,9 +82,12 @@ script.on_event(defines.events.on_player_created, function(event)
     end
 
     -- Place construction bots, and other items into inventory
+    local lamp_count = settings.global["qsd-setting-lamp-size"].value
+    local steel_chest_count = settings.global["qsd-setting-steel-chest-size"].value
+
     inventory.insert({name = "construction-robot", count = 200})
-    inventory.insert({name = "small-lamp", count = 200})
-    inventory.insert({name = "steel-chest", count = 50})
+    inventory.insert({name = "small-lamp", count = lamp_count})
+    inventory.insert({name = "steel-chest", count = steel_chest_count})
 
     -- The character's inventory is prepared
     player.print({"qsd-log-message.info-startup-inventory"}, COLOR_WHITE)
@@ -123,7 +126,7 @@ script.on_event(defines.events.on_player_created, function(event)
     player.print({"qsd-log-message.info-startup-spidertron"}, COLOR_WHITE)
 
     -- Should the technology be upgraded?
-    if settings.startup["qsd-setting-research-enabled"].value then
+    if settings.global["qsd-setting-research-enabled"].value then
         -- Upgrade worker robot speed and robot storage
         for key, technology in ipairs(ROBOT_TECHNOLOGY) do
             player.force.technologies[technology].researched = true
