@@ -3,6 +3,7 @@ Version: 1.0.0
 Date: 2022-06-06
 
 - Added settings to control granted item counts.
+- README updates.
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.0
