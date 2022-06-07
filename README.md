@@ -2,10 +2,8 @@
 
 Quick Start Delight - A Factorio Quick Start Mod by Urda
 
-Hit the ground running with a spidertron, robots, and more in your next new game!
+Hit the ground running with a spidertron, robots, and more in your next game!
 This mod is meant for players who have already beaten the game at least once.
-
-** This is an UNSTABLE mod release! **
 
 Configures player equipment with:
 

@@ -82,10 +82,11 @@ script.on_event(defines.events.on_player_created, function(event)
     end
 
     -- Place construction bots, and other items into inventory
+    local bot_count = settings.global["qsd-setting-construction-bot-size"].value
     local lamp_count = settings.global["qsd-setting-lamp-size"].value
     local steel_chest_count = settings.global["qsd-setting-steel-chest-size"].value
 
-    inventory.insert({name = "construction-robot", count = 200})
+    inventory.insert({name = "construction-robot", count = bot_count})
     inventory.insert({name = "small-lamp", count = lamp_count})
     inventory.insert({name = "steel-chest", count = steel_chest_count})
 
