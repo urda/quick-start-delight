@@ -1,5 +1,8 @@
 script.on_event(defines.events.on_player_created, function(event)
     -- Configure local constants
+    local POWERED_KEY = "powered"
+    local UNPOWERED_KEY = "unpowered"
+
     local COLOR_GREEN =  {  0, 255,   0, 255}
     local COLOR_RED =    {255,   0,   0, 255}
     local COLOR_WHITE =  {255, 255, 255, 255}
@@ -15,6 +18,69 @@ script.on_event(defines.events.on_player_created, function(event)
         'worker-robots-storage-2',
         'worker-robots-storage-3'
     }
+
+    local CHARACTER_GEAR = {
+        [POWERED_KEY] = {
+            ["battery-mk2-equipment"] = {
+                {8, 6},
+                {9, 6},
+                {8, 8},
+                {9, 8},
+            },
+            ["belt-immunity-equipment"] = {
+                {9, 0},
+            },
+            ["exoskeleton-equipment"] = {
+                {0, 2},
+                {2, 2},
+                {4, 2},
+                {6, 2},
+                {8, 2},
+            },
+            ["personal-roboport-mk2-equipment"] = {
+                {0, 0},
+                {2, 0},
+                {4, 0},
+                {6, 0},
+            },
+        },
+        [UNPOWERED_KEY] = {
+            ["fusion-reactor-equipment"] = {
+                {0, 6},
+                {4, 6},
+            },
+            ["solar-panel-equipment"] = {
+                {8, 0},
+                {8, 1},
+                {9, 1},
+            },
+        },
+    }
+
+    local SPIDER_GEAR = {
+        [POWERED_KEY] = {
+            ["battery-mk2-equipment"] = {
+                {8, 4},
+                {9, 4},
+            },
+            ["exoskeleton-equipment"] = {
+                {8, 0},
+            },
+            ["personal-roboport-mk2-equipment"] = {
+                {0, 4},
+                {2, 4},
+                {4, 4},
+                {6, 4},
+            },
+        },
+        [UNPOWERED_KEY] = {
+            ["fusion-reactor-equipment"] = {
+                {0, 0},
+                {4, 0},
+            },
+        },
+    }
+
 
     -- Lookup connecting player and post startup
     local player = game.players[event.player_index]
@@ -51,34 +117,21 @@ script.on_event(defines.events.on_player_created, function(event)
         return
     end
 
-    -- Insert the Power armor MK2, connect the fusion reactors, and the solar panels
+    -- Insert the Power armor MK2
     armor_inventory.insert({name = "power-armor-mk2", count = 1})
-    character.grid.put({name = "fusion-reactor-equipment", position = {0, 6}})
-    character.grid.put({name = "fusion-reactor-equipment", position = {4, 6}})
-    character.grid.put({name = "solar-panel-equipment", position = {8, 0}})
-    character.grid.put({name = "solar-panel-equipment", position = {8, 1}})
-    character.grid.put({name = "solar-panel-equipment", position = {9, 1}})
 
-    -- Insert the rest of the equipment into the armor, track in list for powering up after
-    local gear_to_power = {}
-    table.insert(gear_to_power, character.grid.put({name = "personal-roboport-mk2-equipment", position = {0, 0}}))
-    table.insert(gear_to_power, character.grid.put({name = "personal-roboport-mk2-equipment", position = {2, 0}}))
-    table.insert(gear_to_power, character.grid.put({name = "personal-roboport-mk2-equipment", position = {4, 0}}))
-    table.insert(gear_to_power, character.grid.put({name = "personal-roboport-mk2-equipment", position = {6, 0}}))
-    table.insert(gear_to_power, character.grid.put({name = "belt-immunity-equipment", position = {9, 0}}))
-    table.insert(gear_to_power, character.grid.put({name = "exoskeleton-equipment", position = {0, 2}}))
-    table.insert(gear_to_power, character.grid.put({name = "exoskeleton-equipment", position = {2, 2}}))
-    table.insert(gear_to_power, character.grid.put({name = "exoskeleton-equipment", position = {4, 2}}))
-    table.insert(gear_to_power, character.grid.put({name = "exoskeleton-equipment", position = {6, 2}}))
-    table.insert(gear_to_power, character.grid.put({name = "exoskeleton-equipment", position = {8, 2}}))
-    table.insert(gear_to_power, character.grid.put({name = "battery-mk2-equipment", position = {8, 6}}))
-    table.insert(gear_to_power, character.grid.put({name = "battery-mk2-equipment", position = {9, 6}}))
-    table.insert(gear_to_power, character.grid.put({name = "battery-mk2-equipment", position = {8, 8}}))
-    table.insert(gear_to_power, character.grid.put({name = "battery-mk2-equipment", position = {9, 8}}))
+    -- Insert the rest of the equipment into the armor
+    for gear_type, gear_group in pairs(CHARACTER_GEAR) do
+        for gear_name, gear_position_array in pairs(gear_group) do
+            for key, position in ipairs(gear_position_array) do
+                local new_gear = character.grid.put({name = gear_name, position = position})
 
-    -- "Well, you don't give a toy without batteries."
-    for key, new_gear in ipairs(gear_to_power) do
-        new_gear.energy = new_gear.max_energy
+                if gear_type == POWERED_KEY then
+                    -- "Well, you don't give a toy without batteries."
+                    new_gear.energy = new_gear.max_energy
+                end
+            end
+        end
     end
 
     -- Lookup starting inventory count settings
@@ -110,20 +163,17 @@ script.on_event(defines.events.on_player_created, function(event)
     spidertron.create_grid()
 
     -- Insert the Spidertron gear
-    local spider_gear_to_power = {}
-    table.insert(spider_gear_to_power, spidertron.grid.put({name = "fusion-reactor-equipment", position = {0, 0}}))
-    table.insert(spider_gear_to_power, spidertron.grid.put({name = "fusion-reactor-equipment", position = {4, 0}}))
-    table.insert(spider_gear_to_power, spidertron.grid.put({name = "exoskeleton-equipment", position = {8, 0}}))
-    table.insert(spider_gear_to_power, spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {0, 4}}))
-    table.insert(spider_gear_to_power, spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {2, 4}}))
-    table.insert(spider_gear_to_power, spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {4, 4}}))
-    table.insert(spider_gear_to_power, spidertron.grid.put({name = "personal-roboport-mk2-equipment", position = {6, 4}}))
-    table.insert(spider_gear_to_power, spidertron.grid.put({name = "battery-mk2-equipment", position = {8, 4}}))
-    table.insert(spider_gear_to_power, spidertron.grid.put({name = "battery-mk2-equipment", position = {9, 4}}))
+    for gear_type, gear_group in pairs(SPIDER_GEAR) do
+        for gear_name, gear_position_array in pairs(gear_group) do
+            for key, position in ipairs(gear_position_array) do
+                local new_gear = spidertron.grid.put({name = gear_name, position = position})
 
-    -- "Well, you don't give a toy without batteries." - Spidertron Version
-    for key, spider_gear in ipairs(spider_gear_to_power) do
-        spider_gear.energy = spider_gear.max_energy
+                if gear_type == POWERED_KEY then
+                    -- "Well, you don't give a toy without batteries."
+                    new_gear.energy = new_gear.max_energy
+                end
+            end
+        end
     end
 
     -- The Spidertron is prepared
