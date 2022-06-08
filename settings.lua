@@ -16,7 +16,7 @@ data:extend({
         name = "qsd-setting-construction-bot-size",
         setting_type = "runtime-global",
         default_value = 200,
-        allowed_values = {0, 50, 100, 200}
+        allowed_values = {0, 25, 50, 75, 100, 125, 150, 175, 200}
     },
     {
         type = "int-setting",
