@@ -23,11 +23,14 @@ Configures a spidertron with equipment such that:
 
 Places the following additional items in player inventory:
 
+- Big Electric Pole (50x)
 - Construction robot (200x) (Half for the player, the other half for the spidertron)
 - Lamp (200x)
 - Spidertron (1x)
 - Spidertron Remote (1x)
 - Steel Chest (50x)
+
+Quick Start Delight also:
 
 - Completes related robot storage and speed technology research.
 
