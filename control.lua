@@ -81,11 +81,14 @@ script.on_event(defines.events.on_player_created, function(event)
         new_gear.energy = new_gear.max_energy
     end
 
-    -- Place construction bots, and other items into inventory
+    -- Lookup starting inventory count settings
+    local big_electric_pole_count = settings.global["qsd-setting-big-electric-pole-size"].value
     local bot_count = settings.global["qsd-setting-construction-bot-size"].value
     local lamp_count = settings.global["qsd-setting-lamp-size"].value
     local steel_chest_count = settings.global["qsd-setting-steel-chest-size"].value
 
+    -- Place construction bots, and other items into inventory
+    inventory.insert({name = "big-electric-pole", count = big_electric_pole_count})
     inventory.insert({name = "construction-robot", count = bot_count})
     inventory.insert({name = "small-lamp", count = lamp_count})
     inventory.insert({name = "steel-chest", count = steel_chest_count})

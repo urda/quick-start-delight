@@ -13,6 +13,13 @@ data:extend({
     },
     {
         type = "int-setting",
+        name = "qsd-setting-big-electric-pole-size",
+        setting_type = "runtime-global",
+        default_value = 50,
+        allowed_values = {0, 50, 100, 200, 400, 600, 800, 1000}
+    },
+    {
+        type = "int-setting",
         name = "qsd-setting-construction-bot-size",
         setting_type = "runtime-global",
         default_value = 200,

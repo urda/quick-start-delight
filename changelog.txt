@@ -1,6 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 2022.06.08 20:00:00+00:00
+  Features:
+    - Added Big Electric Poles (50x) to the default loadout.
+    - Added Big Electric Poles to mod settings.
   Changes:
     - Continue to make adjustments / updates to changelog.txt to conform to Factorio specs.
     - changelog.txt will stop "changing" in the future as corrections to parsing are made.
