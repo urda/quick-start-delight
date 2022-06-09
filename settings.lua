@@ -7,7 +7,7 @@ data:extend({
     },
     {
         type = "bool-setting",
-        name = "qsd-setting-research-enabled",
+        name = "qsd-setting-research-bots-enabled",
         setting_type = "runtime-global",
         default_value = true
     },

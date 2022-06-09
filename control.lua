@@ -110,16 +110,16 @@ script.on_event(defines.events.on_player_created, function(event)
     -- The Spidertron is prepared
     player.print({"qsd-log-message.info-startup-spidertron"}, COLOR_WHITE)
 
-    -- Should the technology be upgraded?
-    if settings.global["qsd-setting-research-enabled"].value then
+    -- Should the bot technology be upgraded?
+    if settings.global["qsd-setting-research-bots-enabled"].value then
         -- Upgrade worker robot speed and robot storage
         for key, technology in ipairs(ROBOT_TECHNOLOGY) do
             player.force.technologies[technology].researched = true
         end
 
-        player.print({"qsd-log-message.info-startup-robot-technology"}, COLOR_WHITE)
+        player.print({"qsd-log-message.info-startup-research-robots"}, COLOR_WHITE)
     else
-        player.print({"qsd-log-message.warning-research-disabled"}, COLOR_YELLOW)
+        player.print({"qsd-log-message.warning-research-bots-disabled"}, COLOR_YELLOW)
     end
 
     -- You Dun There Start Em Up
