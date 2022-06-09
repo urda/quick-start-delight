@@ -134,17 +134,30 @@ script.on_event(defines.events.on_player_created, function(event)
         end
     end
 
+    -- Build function to deal with '0' value items (Bugfix for 1.1.0 -> 1.1.1)
+    function load_gear(loadout_specs, target_player, target_inventory)
+        for item_name, item_count in pairs(loadout_specs) do
+            if item_count > 0 then
+                target_inventory.insert({name = item_name, count = item_count})
+                target_player.print({"qsd-log-message.info-startup-inventory-added-generic", item_name, item_count}, COLOR_WHITE)
+            elseif item_count == 0 then
+                target_player.print({"qsd-log-message.warning-inventory-skipped-generic", item_name, item_count}, COLOR_YELLOW)
+            else
+                target_player.print({"qsd-log-message.error-negative-inventory-count"}, COLOR_RED)
+            end
+        end
+    end
+
     -- Lookup starting inventory count settings
-    local big_electric_pole_count = settings.global["qsd-setting-big-electric-pole-size"].value
-    local bot_count = settings.global["qsd-setting-construction-bot-size"].value
-    local lamp_count = settings.global["qsd-setting-lamp-size"].value
-    local steel_chest_count = settings.global["qsd-setting-steel-chest-size"].value
+    local gear_loadout = {
+        ["big-electric-pole"] = settings.global["qsd-setting-big-electric-pole-size"].value,
+        ["construction-robot"] = settings.global["qsd-setting-construction-bot-size"].value,
+        ["small-lamp"] = settings.global["qsd-setting-lamp-size"].value,
+        ["steel-chest"] = settings.global["qsd-setting-steel-chest-size"].value,
+    }
 
     -- Place construction bots, and other items into inventory
-    inventory.insert({name = "big-electric-pole", count = big_electric_pole_count})
-    inventory.insert({name = "construction-robot", count = bot_count})
-    inventory.insert({name = "small-lamp", count = lamp_count})
-    inventory.insert({name = "steel-chest", count = steel_chest_count})
+    load_gear(gear_loadout, player, inventory)
 
     -- The character's inventory is prepared
     player.print({"qsd-log-message.info-startup-inventory"}, COLOR_WHITE)
