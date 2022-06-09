@@ -12,6 +12,12 @@ data:extend({
         default_value = true
     },
     {
+        type = "bool-setting",
+        name = "qsd-setting-research-toolbelt-enabled",
+        setting_type = "runtime-global",
+        default_value = true
+    },
+    {
         type = "int-setting",
         name = "qsd-setting-big-electric-pole-size",
         setting_type = "runtime-global",

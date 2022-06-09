@@ -2,6 +2,8 @@
 POWERED_KEY = "powered"
 UNPOWERED_KEY = "unpowered"
 
+TECH_TOOLBELT = "toolbelt"
+
 COLOR_GREEN =  {  0, 255,   0, 255}
 COLOR_RED =    {255,   0,   0, 255}
 COLOR_WHITE =  {255, 255, 255, 255}

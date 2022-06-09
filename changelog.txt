@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2022.06.09 20:30:00+00:00
+  Features:
+    - Added "Toolbelt (research)" to the Quick Start Delight pack.
+    - Added "Toolbelt (research)" settings to mod settings.
+  Changes:
+    - Simplified gear creation, insertion, and powering in Lua.
+    - Moved Lua constants into `constants.lua`.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.1.1
 Date: 2022.06.09 20:20:20+00:00
   Bugfixes:

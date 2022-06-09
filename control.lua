@@ -122,6 +122,14 @@ script.on_event(defines.events.on_player_created, function(event)
         player.print({"qsd-log-message.warning-research-robots-disabled"}, COLOR_YELLOW)
     end
 
+    -- Should the toolbelt technology be upgraded?
+    if settings.global["qsd-setting-research-toolbelt-enabled"].value then
+        player.force.technologies[TECH_TOOLBELT].researched = true
+        player.print({"qsd-log-message.info-startup-research-toolbelt"}, COLOR_WHITE)
+    else
+        player.print({"qsd-log-message.warning-research-toolbelt-disabled"}, COLOR_YELLOW)
+    end
+
     -- You Dun There Start Em Up
     player.print({"qsd-log-message.info-character-init"}, COLOR_GREEN)
 end)
