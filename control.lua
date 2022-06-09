@@ -119,7 +119,7 @@ script.on_event(defines.events.on_player_created, function(event)
 
         player.print({"qsd-log-message.info-startup-research-robots"}, COLOR_WHITE)
     else
-        player.print({"qsd-log-message.warning-research-bots-disabled"}, COLOR_YELLOW)
+        player.print({"qsd-log-message.warning-research-robots-disabled"}, COLOR_YELLOW)
     end
 
     -- You Dun There Start Em Up
