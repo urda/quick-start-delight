@@ -33,6 +33,8 @@ Places the following additional items in player inventory:
 Quick Start Delight also:
 
 - Completes related robot storage and speed technology research.
+- Complete toolbelt research.
+- Offers lots of configuration settings!
 
 # Working on the mod
 
