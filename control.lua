@@ -1,8 +1,29 @@
+local POWERED_KEY = "powered"
+local UNPOWERED_KEY = "unpowered"
+
+--- Configure an equipment grid given input specs.
+--
+-- @usage configure_gear(character, CHARACTER_GEAR)
+--
+-- @param gear_to_load The target character, spidertron, or other equipment grid.
+-- @param gear_loadout The gear to load into the equipment grid.
+local function configure_gear(gear_to_load, gear_loadout)
+    for gear_type, gear_group in pairs(gear_loadout) do
+        for gear_name, gear_position_array in pairs(gear_group) do
+            for key, position in ipairs(gear_position_array) do
+                local new_gear = gear_to_load.grid.put({name = gear_name, position = position})
+
+                if gear_type == POWERED_KEY then
+                    -- "Well, you don't give a toy without batteries."
+                    new_gear.energy = new_gear.max_energy
+                end
+            end
+        end
+    end
+end
+
 script.on_event(defines.events.on_player_created, function(event)
     -- Configure local constants
-    local POWERED_KEY = "powered"
-    local UNPOWERED_KEY = "unpowered"
-
     local COLOR_GREEN =  {  0, 255,   0, 255}
     local COLOR_RED =    {255,   0,   0, 255}
     local COLOR_WHITE =  {255, 255, 255, 255}
@@ -121,18 +142,7 @@ script.on_event(defines.events.on_player_created, function(event)
     armor_inventory.insert({name = "power-armor-mk2", count = 1})
 
     -- Insert the rest of the equipment into the armor
-    for gear_type, gear_group in pairs(CHARACTER_GEAR) do
-        for gear_name, gear_position_array in pairs(gear_group) do
-            for key, position in ipairs(gear_position_array) do
-                local new_gear = character.grid.put({name = gear_name, position = position})
-
-                if gear_type == POWERED_KEY then
-                    -- "Well, you don't give a toy without batteries."
-                    new_gear.energy = new_gear.max_energy
-                end
-            end
-        end
-    end
+    configure_gear(character, CHARACTER_GEAR)
 
     -- Build function to deal with '0' value items (Bugfix for 1.1.0 -> 1.1.1)
     function load_gear(loadout_specs, target_player, target_inventory)
@@ -176,18 +186,7 @@ script.on_event(defines.events.on_player_created, function(event)
     spidertron.create_grid()
 
     -- Insert the Spidertron gear
-    for gear_type, gear_group in pairs(SPIDER_GEAR) do
-        for gear_name, gear_position_array in pairs(gear_group) do
-            for key, position in ipairs(gear_position_array) do
-                local new_gear = spidertron.grid.put({name = gear_name, position = position})
-
-                if gear_type == POWERED_KEY then
-                    -- "Well, you don't give a toy without batteries."
-                    new_gear.energy = new_gear.max_energy
-                end
-            end
-        end
-    end
+    configure_gear(spidertron, SPIDER_GEAR)
 
     -- The Spidertron is prepared
     player.print({"qsd-log-message.info-startup-spidertron"}, COLOR_WHITE)
