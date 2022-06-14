@@ -1,25 +1,5 @@
 require("qsd.constants")
-
---- Configure an equipment grid given input specs.
---
--- @usage configure_gear(character, CHARACTER_GEAR)
---
--- @param gear_to_load The target character, spidertron, or other equipment grid.
--- @param gear_loadout The gear to load into the equipment grid.
-local function configure_gear(gear_to_load, gear_loadout)
-    for gear_type, gear_group in pairs(gear_loadout) do
-        for gear_name, gear_position_array in pairs(gear_group) do
-            for key, position in ipairs(gear_position_array) do
-                local new_gear = gear_to_load.grid.put({name = gear_name, position = position})
-
-                if gear_type == POWERED_KEY then
-                    -- "Well, you don't give a toy without batteries."
-                    new_gear.energy = new_gear.max_energy
-                end
-            end
-        end
-    end
-end
+require("qsd.utils")
 
 script.on_event(defines.events.on_player_created, function(event)
     -- Lookup connecting player and post startup
@@ -62,20 +42,6 @@ script.on_event(defines.events.on_player_created, function(event)
 
     -- Insert the rest of the equipment into the armor
     configure_gear(character, CHARACTER_GEAR)
-
-    -- Build function to deal with '0' value items (Bugfix for 1.1.0 -> 1.1.1)
-    function load_gear(loadout_specs, target_player, target_inventory)
-        for item_name, item_count in pairs(loadout_specs) do
-            if item_count > 0 then
-                target_inventory.insert({name = item_name, count = item_count})
-                target_player.print({"qsd-log-message.info-startup-inventory-added-generic", item_name, item_count}, COLOR_WHITE)
-            elseif item_count == 0 then
-                target_player.print({"qsd-log-message.warning-inventory-skipped-generic", item_name, item_count}, COLOR_YELLOW)
-            else
-                target_player.print({"qsd-log-message.error-negative-inventory-count"}, COLOR_RED)
-            end
-        end
-    end
 
     -- Lookup starting inventory count settings
     local gear_loadout = {
