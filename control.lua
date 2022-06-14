@@ -1,4 +1,4 @@
-require("constants")
+require("qsd.constants")
 
 --- Configure an equipment grid given input specs.
 --
