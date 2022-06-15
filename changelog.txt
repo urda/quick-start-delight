@@ -4,6 +4,8 @@ Date: 2022.06.15 00:00:00+00:00
   Features:
     - Added "Radar" to the Quick Start Delight pack.
     - Added "Radar" settings to mod settings.
+    - Added "Repair Pack" to the Quick Start Delight pack.
+    - Added "Repair Pack" settings to mod settings.
   Optimisations:
     - Sort player inventory after performing any updates.
   Locale:

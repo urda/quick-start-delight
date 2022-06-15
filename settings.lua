@@ -47,6 +47,13 @@ data:extend({
     },
     {
         type = "int-setting",
+        name = "qsd-setting-repair-pack-size",
+        setting_type = "runtime-global",
+        default_value = 200,
+        allowed_values = {0, 200}
+    },
+    {
+        type = "int-setting",
         name = "qsd-setting-steel-chest-size",
         setting_type = "runtime-global",
         default_value = 50,
