@@ -1,4 +1,5 @@
 require("qsd.constants")
+require("qsd.mod_settings")
 require("qsd.utils")
 
 script.on_event(defines.events.on_player_created, function(event)
@@ -43,18 +44,8 @@ script.on_event(defines.events.on_player_created, function(event)
     -- Insert the rest of the equipment into the armor
     configure_gear(character, CHARACTER_GEAR)
 
-    -- Lookup starting inventory count settings
-    local gear_loadout = {
-        ["big-electric-pole"] = settings.global["qsd-setting-big-electric-pole-size"].value,
-        ["construction-robot"] = settings.global["qsd-setting-construction-bot-size"].value,
-        ["radar"] = settings.global["qsd-setting-radar-size"].value,
-        ["repair-pack"] = settings.global["qsd-setting-repair-pack-size"].value,
-        ["small-lamp"] = settings.global["qsd-setting-lamp-size"].value,
-        ["steel-chest"] = settings.global["qsd-setting-steel-chest-size"].value,
-    }
-
     -- Place construction bots, and other items into inventory
-    load_gear(gear_loadout, player, inventory)
+    load_gear(PLAYER_LOADOUT_FROM_SETTINGS, player, inventory)
 
     -- The character's inventory is prepared
     inventory.sort_and_merge()
