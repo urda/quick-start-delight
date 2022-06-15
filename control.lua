@@ -56,11 +56,13 @@ script.on_event(defines.events.on_player_created, function(event)
     load_gear(gear_loadout, player, inventory)
 
     -- The character's inventory is prepared
+    inventory.sort_and_merge()
     player.print({"qsd-log-message.info-startup-inventory"}, COLOR_WHITE)
 
     -- Place a Spidertron and a Spidertron remote
     inventory.insert({name = "spidertron", count = 1})
     inventory.insert({name = "spidertron-remote", count = 1})
+    inventory.sort_and_merge()
 
     -- Find that Spidertron for configuration
     local spidertron = inventory.find_item_stack("spidertron")
