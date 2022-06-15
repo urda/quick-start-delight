@@ -40,6 +40,13 @@ data:extend({
     },
     {
         type = "int-setting",
+        name = "qsd-setting-radar-size",
+        setting_type = "runtime-global",
+        default_value = 50,
+        allowed_values = {0, 25, 50, 75, 100, 125, 150, 175, 200}
+    },
+    {
+        type = "int-setting",
         name = "qsd-setting-steel-chest-size",
         setting_type = "runtime-global",
         default_value = 50,

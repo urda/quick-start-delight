@@ -47,6 +47,7 @@ script.on_event(defines.events.on_player_created, function(event)
     local gear_loadout = {
         ["big-electric-pole"] = settings.global["qsd-setting-big-electric-pole-size"].value,
         ["construction-robot"] = settings.global["qsd-setting-construction-bot-size"].value,
+        ["radar"] = settings.global["qsd-setting-radar-size"].value,
         ["small-lamp"] = settings.global["qsd-setting-lamp-size"].value,
         ["steel-chest"] = settings.global["qsd-setting-steel-chest-size"].value,
     }

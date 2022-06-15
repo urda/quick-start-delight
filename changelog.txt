@@ -1,6 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.1
 Date: 2022.06.15 00:00:00+00:00
+  Features:
+    - Added "Radar" to the Quick Start Delight pack.
+    - Added "Radar" settings to mod settings.
   Locale:
     - Adjusted item added to inventory message for clarity.
   Other:
