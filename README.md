@@ -1,6 +1,9 @@
-# Quick Start Delight
+# Quick Start Delight - A Factorio Quick Start Mod by Urda
 
-Quick Start Delight - A Factorio Quick Start Mod by Urda
+> As your Spaceship begins its unscheduled "landing",
+> you rush to the back of the cockpit and slam a large emergency button labeled
+> "QSD". Machinery begins to whirl as your Spidertron and supplies are packed
+> into your survival kit. You brace for impact.
 
 Hit the ground running with a spidertron, robots, and more in your next game!
 This mod is meant for players who have already beaten the game at least once.
