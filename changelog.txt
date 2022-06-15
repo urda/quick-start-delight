@@ -12,6 +12,7 @@ Date: 2022.06.15 00:00:00+00:00
     - Adjusted item added to inventory message for clarity.
   Other:
     - (Internal) Created 'qsd' Lua library.
+    - (Internal) Updated Apache License related materials.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
