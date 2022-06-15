@@ -10,34 +10,36 @@ This mod is meant for players who have already beaten the game at least once.
 
 Configures player equipment with:
 
-- Belt immunity equipment (1x)
-- Exoskeleton (5x)
-- Personal battery MK2 (4x)
-- Personal roboport MK2 (4x)
-- Portable fusion reactor (2x)
-- Portable solar panel (3x)
+- Belt immunity equipment (x1)
+- Exoskeleton (x5)
+- Personal battery MK2 (x4)
+- Personal roboport MK2 (x4)
+- Portable fusion reactor (x2)
+- Portable solar panel (x3)
 
 Configures a spidertron with equipment such that:
 
-- Exoskeleton (1x)
-- Personal battery MK2 (4x)
-- Personal roboport MK2 (4x)
-- Portable fusion reactor (2x)
+- Exoskeleton (x1)
+- Personal battery MK2 (x4)
+- Personal roboport MK2 (x4)
+- Portable fusion reactor (x2)
 
-Places the following additional items in player inventory:
+Places the following additional items in player inventory (with default counts):
 
-- Big Electric Pole (50x)
-- Construction robot (200x) (Half for the player, the other half for the spidertron)
-- Lamp (200x)
-- Spidertron (1x)
-- Spidertron Remote (1x)
-- Steel Chest (50x)
+- Big Electric Pole (x50)
+- Construction robot (x200) (Half for the player, the other half for the spidertron)
+- Lamp (x200)
+- Spidertron (x1)
+- Spidertron Remote (x1)
+- Radar (x50)
+- Repair Pack (x50)
+- Steel Chest (x50)
 
 Quick Start Delight also:
 
 - Completes related robot storage and speed technology research.
 - Complete toolbelt research.
-- Offers lots of configuration settings!
+- Offers lots of configuration settings to adjust starting counts!
 
 # Working on the mod
 
