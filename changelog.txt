@@ -13,6 +13,7 @@ Date: 2022.06.15 00:00:00+00:00
   Other:
     - (Internal) Created 'qsd' Lua library.
     - (Internal) Updated Apache License related materials.
+    - Added some "flavor text" to the project's README.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
