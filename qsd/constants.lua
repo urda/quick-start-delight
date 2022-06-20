@@ -29,6 +29,16 @@ COLOR_YELLOW = {255, 255,   0, 255}
 
 -- Array Constants
 
+BRAKING_TECHNOLOGY = {
+    'braking-force-1',
+    'braking-force-2',
+    'braking-force-3',
+    'braking-force-4',
+    'braking-force-5',
+    'braking-force-6',
+    'braking-force-7',
+}
+
 ROBOT_TECHNOLOGY = {
     'worker-robots-speed-1',
     'worker-robots-speed-2',

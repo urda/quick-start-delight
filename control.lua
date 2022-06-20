@@ -90,6 +90,17 @@ script.on_event(defines.events.on_player_created, function(event)
         player.print({"qsd-log-message.warning-spidertron-disabled"}, COLOR_YELLOW)
     end
 
+    -- Should the braking force be upgraded?
+    if settings.global["qsd-setting-research-braking-enabled"].value then
+        for key, technology in ipairs(BRAKING_TECHNOLOGY) do
+            player.force.technologies[technology].researched = true
+        end
+
+        player.print({"qsd-log-message.info-startup-research-braking"}, COLOR_WHITE)
+    else
+        player.print({"qsd-log-message.warning-research-braking-disabled"}, COLOR_YELLOW)
+    end
+
     -- Should the bot technology be upgraded?
     if settings.global["qsd-setting-research-bots-enabled"].value then
         -- Upgrade worker robot speed and robot storage

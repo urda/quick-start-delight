@@ -22,6 +22,12 @@ data:extend({
     },
     {
         type = "bool-setting",
+        name = "qsd-setting-research-braking-enabled",
+        setting_type = "runtime-global",
+        default_value = true
+    },
+    {
+        type = "bool-setting",
         name = "qsd-setting-research-bots-enabled",
         setting_type = "runtime-global",
         default_value = true
