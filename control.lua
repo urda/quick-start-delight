@@ -66,25 +66,29 @@ script.on_event(defines.events.on_player_created, function(event)
     inventory.sort_and_merge()
     player.print({"qsd-log-message.info-startup-inventory"}, COLOR_WHITE)
 
-    -- Place a Spidertron and a Spidertron remote
-    inventory.insert({name = "spidertron", count = 1})
-    inventory.insert({name = "spidertron-remote", count = 1})
-    inventory.sort_and_merge()
+    if settings.global["qsd-setting-spidertron-enabled"].value then
+        -- Place a Spidertron and a Spidertron remote
+        inventory.insert({name = "spidertron", count = 1})
+        inventory.insert({name = "spidertron-remote", count = 1})
+        inventory.sort_and_merge()
 
-    -- Find that Spidertron for configuration
-    local spidertron = inventory.find_item_stack("spidertron")
-    if not spidertron then
-        player.print({"qsd-log-message.error-no-spidertron"}, COLOR_RED)
-        player.print({"qsd-log-message.warning-partial-start"}, COLOR_YELLOW)
-        return
+        -- Find that Spidertron for configuration
+        local spidertron = inventory.find_item_stack("spidertron")
+        if not spidertron then
+            player.print({"qsd-log-message.error-no-spidertron"}, COLOR_RED)
+            player.print({"qsd-log-message.warning-partial-start"}, COLOR_YELLOW)
+            return
+        end
+        spidertron.create_grid()
+
+        -- Insert the Spidertron gear
+        configure_gear(spidertron, SPIDER_GEAR)
+
+        -- The Spidertron is prepared
+        player.print({"qsd-log-message.info-startup-spidertron"}, COLOR_WHITE)
+    else
+        player.print({"qsd-log-message.warning-spidertron-disabled"}, COLOR_YELLOW)
     end
-    spidertron.create_grid()
-
-    -- Insert the Spidertron gear
-    configure_gear(spidertron, SPIDER_GEAR)
-
-    -- The Spidertron is prepared
-    player.print({"qsd-log-message.info-startup-spidertron"}, COLOR_WHITE)
 
     -- Should the bot technology be upgraded?
     if settings.global["qsd-setting-research-bots-enabled"].value then

@@ -3,6 +3,7 @@ Version: 2.0.0
 Date: 2022.06.20 00:00:00+00:00
   Features:
     - Sweet new Quick Start Delight thumbnail.
+    - Added setting to enable or disable starting spidertron.
   Other:
     - (Internal) Adjusted QSD constants file layout.
 
