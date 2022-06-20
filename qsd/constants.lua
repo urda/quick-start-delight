@@ -13,16 +13,20 @@
 -- limitations under the License.
 --
 
--- Configure local constants
+-- String Constants
+
 POWERED_KEY = "powered"
+TECH_TOOLBELT = "toolbelt"
 UNPOWERED_KEY = "unpowered"
 
-TECH_TOOLBELT = "toolbelt"
+-- Color Constants
 
-COLOR_GREEN =  {  0, 255,   0, 255}
-COLOR_RED =    {255,   0,   0, 255}
-COLOR_WHITE =  {255, 255, 255, 255}
+COLOR_GREEN  = {  0, 255,   0, 255}
+COLOR_RED    = {255,   0,   0, 255}
+COLOR_WHITE  = {255, 255, 255, 255}
 COLOR_YELLOW = {255, 255,   0, 255}
+
+-- Array Constants
 
 ROBOT_TECHNOLOGY = {
     'worker-robots-speed-1',
@@ -34,6 +38,8 @@ ROBOT_TECHNOLOGY = {
     'worker-robots-storage-2',
     'worker-robots-storage-3'
 }
+
+-- Complex Constants
 
 CHARACTER_GEAR = {
     [POWERED_KEY] = {
