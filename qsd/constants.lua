@@ -39,6 +39,12 @@ BRAKING_TECHNOLOGY = {
     'braking-force-7',
 }
 
+MINING_TECHNOLOGY = {
+    'mining-productivity-1',
+    'mining-productivity-2',
+    'mining-productivity-3',
+}
+
 ROBOT_TECHNOLOGY = {
     'worker-robots-speed-1',
     'worker-robots-speed-2',

@@ -6,6 +6,8 @@ Date: 2022.06.20 00:00:00+00:00
     - Added setting to enable or disable starting spidertron.
     - Added "Braking force (research)" to the Quick Start Delight pack.
     - Added "Braking force (research)" settings to mod settings.
+    - Added "Mining productivity (research)" to the Quick Start Delight pack.
+    - Added "Mining productivity (research)" settings to mod settings.
   Other:
     - (Internal) Adjusted QSD constants file layout.
 
