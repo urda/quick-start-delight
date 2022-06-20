@@ -40,6 +40,12 @@ data:extend({
     },
     {
         type = "bool-setting",
+        name = "qsd-setting-research-speed-enabled",
+        setting_type = "runtime-global",
+        default_value = true
+    },
+    {
+        type = "bool-setting",
         name = "qsd-setting-research-toolbelt-enabled",
         setting_type = "runtime-global",
         default_value = true

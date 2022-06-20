@@ -124,6 +124,17 @@ script.on_event(defines.events.on_player_created, function(event)
         player.print({"qsd-log-message.warning-research-mining-disabled"}, COLOR_YELLOW)
     end
 
+    -- Should lab research speed be upgraded?
+    if settings.global["qsd-setting-research-speed-enabled"].value then
+        for key, technology in ipairs(RESEARCH_TECHNOLOGY) do
+            player.force.technologies[technology].researched = true
+        end
+
+        player.print({"qsd-log-message.info-startup-research-speed"}, COLOR_WHITE)
+    else
+        player.print({"qsd-log-message.warning-research-speed-disabled"}, COLOR_YELLOW)
+    end
+
     -- Should the toolbelt technology be upgraded?
     if settings.global["qsd-setting-research-toolbelt-enabled"].value then
         player.force.technologies[TECH_TOOLBELT].researched = true

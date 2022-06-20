@@ -45,6 +45,15 @@ MINING_TECHNOLOGY = {
     'mining-productivity-3',
 }
 
+RESEARCH_TECHNOLOGY = {
+    'research-speed-1',
+    'research-speed-2',
+    'research-speed-3',
+    'research-speed-4',
+    'research-speed-5',
+    'research-speed-6',
+}
+
 ROBOT_TECHNOLOGY = {
     'worker-robots-speed-1',
     'worker-robots-speed-2',
