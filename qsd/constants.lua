@@ -21,6 +21,7 @@ UNPOWERED_KEY = "unpowered"
 
 -- Color Constants
 
+COLOR_URDA   = {  0,  51, 153, 255}
 COLOR_GREEN  = {  0, 255,   0, 255}
 COLOR_RED    = {255,   0,   0, 255}
 COLOR_WHITE  = {255, 255, 255, 255}
