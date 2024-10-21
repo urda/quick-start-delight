@@ -93,7 +93,7 @@ CHARACTER_GEAR = {
         },
     },
     [UNPOWERED_KEY] = {
-        ["fusion-reactor-equipment"] = {
+        ["fission-reactor-equipment"] = {
             {0, 6},
             {4, 6},
         },
@@ -122,7 +122,7 @@ SPIDER_GEAR = {
         },
     },
     [UNPOWERED_KEY] = {
-        ["fusion-reactor-equipment"] = {
+        ["fission-reactor-equipment"] = {
             {0, 0},
             {4, 0},
         },
