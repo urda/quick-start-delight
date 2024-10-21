@@ -1,11 +1,13 @@
 {
     "name": "quick-start-delight",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "Quick Start Delight",
     "author": "urda",
     "homepage": "https://github.com/urda/quick-start-delight",
     "contact": "foss@urda.engineering",
-    "factorio_version": "1.1",
-    "dependencies": ["base >= 1.1"],
+    "factorio_version": "2.0",
+    "dependencies": [
+        "base >= 2.0.0"
+    ],
     "description": "Hit the ground running with a spidertron, robots, and more in your next game! This mod is meant for players who have already beaten the game at least once."
 }
