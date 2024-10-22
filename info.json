@@ -7,7 +7,10 @@
     "contact": "foss@urda.engineering",
     "factorio_version": "2.0",
     "dependencies": [
-        "base >= 2.0.0"
+        "base >= 2.0.8",
+        "? space-age >= 2.0.8",
+        "? elevated-rails >= 2.0.8",
+        "? quality >= 2.0.8"
     ],
     "description": "Hit the ground running with a spidertron, robots, and more in your next game! This mod is meant for players who have already beaten the game at least once."
 }

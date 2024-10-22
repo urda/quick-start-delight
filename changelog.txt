@@ -4,6 +4,7 @@ Date: 20??.??.?? ??:00:00+00:00
   Other:
     - Fixed build process to ignore `.DS_Store` files correctly.
     - README updates.
+    - Mark `space-age` related mods as "optional"
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.2
