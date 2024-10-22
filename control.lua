@@ -67,9 +67,9 @@ script.on_event(defines.events.on_player_created, function(event)
     player.print({"qsd-log-message.info-startup-inventory"}, COLOR_WHITE)
 
     if settings.global["qsd-setting-spidertron-enabled"].value then
-        -- Place a Spidertron and a Spidertron remote
+        -- Place a Spidertron
         inventory.insert({name = "spidertron", count = 1})
-        inventory.insert({name = "spidertron-remote", count = 1})
+        player.force.technologies["spidertron"].researched = true
         inventory.sort_and_merge()
 
         -- Find that Spidertron for configuration
