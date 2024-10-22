@@ -3,6 +3,8 @@ Version: 2.1.3
 Date: 20??.??.?? ??:00:00+00:00
   Other:
     - Fixed build process to ignore `.DS_Store` files correctly.
+    - Removed spidertron remote. These are "free" now in Factorio 2.0.
+    - Fixed missing "Spidertron" research in tech tree (for spidertron remote).
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.2
