@@ -19,12 +19,22 @@ require("constants")
 --
 -- @usage configure_gear(character, CHARACTER_GEAR)
 --
+-- @param target_player The current player
 -- @param gear_to_load The target character, spidertron, or other equipment grid.
 -- @param gear_loadout The gear to load into the equipment grid.
 --
-function configure_gear(gear_to_load, gear_loadout)
+function configure_gear(target_player, gear_to_load, gear_loadout)
     for gear_type, gear_group in pairs(gear_loadout) do
         for gear_name, gear_position_array in pairs(gear_group) do
+            if gear_name == "fusion-reactor-equipment" then
+                if script.active_mods['space-age'] then
+                    target_player.print({"qsd-log-message.info-space-space-fusion"})
+                else
+                    gear_name = "fission-reactor-equipment"
+                    target_player.print({"qsd-log-message.info-space-no-space-fission"})
+                end
+            end
+
             for key, position in ipairs(gear_position_array) do
                 local new_gear = gear_to_load.grid.put({name = gear_name, position = position})
 

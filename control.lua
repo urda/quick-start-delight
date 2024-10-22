@@ -57,7 +57,7 @@ script.on_event(defines.events.on_player_created, function(event)
     armor_inventory.insert({name = "power-armor-mk2", count = 1})
 
     -- Insert the rest of the equipment into the armor
-    configure_gear(character, CHARACTER_GEAR)
+    configure_gear(player, character, CHARACTER_GEAR)
 
     -- Place construction bots, and other items into inventory
     load_gear(PLAYER_LOADOUT_FROM_SETTINGS, player, inventory)
@@ -82,7 +82,7 @@ script.on_event(defines.events.on_player_created, function(event)
         spidertron.create_grid()
 
         -- Insert the Spidertron gear
-        configure_gear(spidertron, SPIDER_GEAR)
+        configure_gear(player, spidertron, SPIDER_GEAR)
 
         -- The Spidertron is prepared
         player.print({"qsd-log-message.info-startup-spidertron"}, COLOR_WHITE)

@@ -1,3 +1,8 @@
+Version: 2.1.1
+Date: 2022.10.09 20:00:00+00:00
+  Bugfixes:
+    - QUICK HOTFIX - Discovered an issue with fusion versus fission for the base game and quick-start-delight. The mod will use `fission` if you are not in "Space Age", and `fusion` if you are. Thanks to https://github.com/Xephi for reporting this issue.
+
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.0
 Date: 2024.10.21 03:00:00+00:00
