@@ -10,7 +10,8 @@
         "base >= 2.0.15",
         "? space-age >= 2.0.15",
         "? elevated-rails >= 2.0.15",
-        "? quality >= 2.0.15"
+        "? quality >= 2.0.15",
+        "! Krastorio2"
     ],
     "description": "Hit the ground running with a spidertron, robots, and more in your next game! This mod is meant for players who have already beaten the game at least once."
 }
