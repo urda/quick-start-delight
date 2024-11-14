@@ -99,3 +99,25 @@ data:extend({
         allowed_values = {0, 50, 100, 200, 400, 600, 800, 1000}
     }
 })
+
+if mods['quality'] then
+    data:extend({
+        {
+            type = "bool-setting",
+            name = "qsd-setting-research-quality-enabled",
+            setting_type = "runtime-global",
+            default_value = true
+        }
+    })
+else
+    data:extend({
+        {
+            type = "bool-setting",
+            name = "qsd-setting-research-quality-enabled",
+            setting_type = "runtime-global",
+            default_value = false,
+            forced_value = false,
+            hidden = true
+        }
+    })
+end

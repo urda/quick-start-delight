@@ -124,6 +124,15 @@ script.on_event(defines.events.on_player_created, function(event)
         player.print({"qsd-log-message.warning-research-mining-disabled"}, { color = COLOR_YELLOW })
     end
 
+    -- Should quality research be upgraded?
+    if settings.global["qsd-setting-research-quality-enabled"].value then
+        player.force.technologies['epic-quality'].researched = true
+        player.force.technologies['legendary-quality'].researched = true
+        player.print({"qsd-log-message.info-startup-research-quality"}, { color = COLOR_WHITE })
+    else
+        player.print({"qsd-log-message.warning-research-quality-disabled"}, { color = COLOR_YELLOW })
+    end
+
     -- Should lab research speed be upgraded?
     if settings.global["qsd-setting-research-speed-enabled"].value then
         for key, technology in ipairs(RESEARCH_TECHNOLOGY) do
