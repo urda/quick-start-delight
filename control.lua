@@ -20,11 +20,11 @@ require("qsd.utils")
 script.on_event(defines.events.on_player_created, function(event)
     -- Lookup connecting player and post startup
     local player = game.players[event.player_index]
-    player.print({"qsd-log-message.info-startup"}, COLOR_WHITE)
+    player.print({"qsd-log-message.info-startup"}, { color = COLOR_WHITE })
 
     -- Is the mod even enabled for this save?
     if not settings.global["qsd-setting-mod-enabled"].value then
-        player.print({"qsd-log-message.warning-mod-disabled"}, COLOR_YELLOW)
+        player.print({"qsd-log-message.warning-mod-disabled"}, { color = COLOR_YELLOW })
         return
     end
 
@@ -32,24 +32,24 @@ script.on_event(defines.events.on_player_created, function(event)
     local character = player.character or player.cutscene_character
 
     if not character then
-        player.print({"qsd-log-message.error-no-character"}, COLOR_RED)
-        player.print({"qsd-log-message.error-failed-start"}, COLOR_RED)
+        player.print({"qsd-log-message.error-no-character"}, { color = COLOR_RED })
+        player.print({"qsd-log-message.error-failed-start"}, { color = COLOR_RED })
         return
     end
 
     -- Attempt to load the player character's inventory
     local inventory = character.get_main_inventory()
     if not inventory then
-        player.print({"qsd-log-message.error-no-inventory"}, COLOR_RED)
-        player.print({"qsd-log-message.error-failed-start"}, COLOR_RED)
+        player.print({"qsd-log-message.error-no-inventory"}, { color = COLOR_RED })
+        player.print({"qsd-log-message.error-failed-start"}, { color = COLOR_RED })
         return
     end
 
     -- Attempt to load the player character's armor inventory
     local armor_inventory = character.get_inventory(defines.inventory.character_armor)
     if not armor_inventory then
-        player.print({"qsd-log-message.error-no-armor-inventory"}, COLOR_RED)
-        player.print({"qsd-log-message.error-failed-start"}, COLOR_RED)
+        player.print({"qsd-log-message.error-no-armor-inventory"}, { color = COLOR_RED })
+        player.print({"qsd-log-message.error-failed-start"}, { color = COLOR_RED })
         return
     end
 
@@ -64,7 +64,7 @@ script.on_event(defines.events.on_player_created, function(event)
 
     -- The character's inventory is prepared
     inventory.sort_and_merge()
-    player.print({"qsd-log-message.info-startup-inventory"}, COLOR_WHITE)
+    player.print({"qsd-log-message.info-startup-inventory"}, { color = COLOR_WHITE })
 
     if settings.global["qsd-setting-spidertron-enabled"].value then
         -- Place a Spidertron
@@ -75,8 +75,8 @@ script.on_event(defines.events.on_player_created, function(event)
         -- Find that Spidertron for configuration
         local spidertron = inventory.find_item_stack("spidertron")
         if not spidertron then
-            player.print({"qsd-log-message.error-no-spidertron"}, COLOR_RED)
-            player.print({"qsd-log-message.warning-partial-start"}, COLOR_YELLOW)
+            player.print({"qsd-log-message.error-no-spidertron"}, { color = COLOR_RED })
+            player.print({"qsd-log-message.warning-partial-start"}, { color = COLOR_YELLOW })
             return
         end
         spidertron.create_grid()
@@ -85,9 +85,9 @@ script.on_event(defines.events.on_player_created, function(event)
         configure_gear(player, spidertron, SPIDER_GEAR)
 
         -- The Spidertron is prepared
-        player.print({"qsd-log-message.info-startup-spidertron"}, COLOR_WHITE)
+        player.print({"qsd-log-message.info-startup-spidertron"}, { color = COLOR_WHITE })
     else
-        player.print({"qsd-log-message.warning-spidertron-disabled"}, COLOR_YELLOW)
+        player.print({"qsd-log-message.warning-spidertron-disabled"}, { color = COLOR_YELLOW })
     end
 
     -- Should the braking force be upgraded?
@@ -96,9 +96,9 @@ script.on_event(defines.events.on_player_created, function(event)
             player.force.technologies[technology].researched = true
         end
 
-        player.print({"qsd-log-message.info-startup-research-braking"}, COLOR_WHITE)
+        player.print({"qsd-log-message.info-startup-research-braking"}, { color = COLOR_WHITE })
     else
-        player.print({"qsd-log-message.warning-research-braking-disabled"}, COLOR_YELLOW)
+        player.print({"qsd-log-message.warning-research-braking-disabled"}, { color = COLOR_YELLOW })
     end
 
     -- Should the bot technology be upgraded?
@@ -108,9 +108,9 @@ script.on_event(defines.events.on_player_created, function(event)
             player.force.technologies[technology].researched = true
         end
 
-        player.print({"qsd-log-message.info-startup-research-robots"}, COLOR_WHITE)
+        player.print({"qsd-log-message.info-startup-research-robots"}, { color = COLOR_WHITE })
     else
-        player.print({"qsd-log-message.warning-research-robots-disabled"}, COLOR_YELLOW)
+        player.print({"qsd-log-message.warning-research-robots-disabled"}, { color = COLOR_YELLOW })
     end
 
     -- Should the mining technology be upgraded?
@@ -119,9 +119,9 @@ script.on_event(defines.events.on_player_created, function(event)
             player.force.technologies[technology].researched = true
         end
 
-        player.print({"qsd-log-message.info-startup-research-mining"}, COLOR_WHITE)
+        player.print({"qsd-log-message.info-startup-research-mining"}, { color = COLOR_WHITE })
     else
-        player.print({"qsd-log-message.warning-research-mining-disabled"}, COLOR_YELLOW)
+        player.print({"qsd-log-message.warning-research-mining-disabled"}, { color = COLOR_YELLOW })
     end
 
     -- Should lab research speed be upgraded?
@@ -130,19 +130,19 @@ script.on_event(defines.events.on_player_created, function(event)
             player.force.technologies[technology].researched = true
         end
 
-        player.print({"qsd-log-message.info-startup-research-speed"}, COLOR_WHITE)
+        player.print({"qsd-log-message.info-startup-research-speed"}, { color = COLOR_WHITE })
     else
-        player.print({"qsd-log-message.warning-research-speed-disabled"}, COLOR_YELLOW)
+        player.print({"qsd-log-message.warning-research-speed-disabled"}, { color = COLOR_YELLOW })
     end
 
     -- Should the toolbelt technology be upgraded?
     if settings.global["qsd-setting-research-toolbelt-enabled"].value then
         player.force.technologies[TECH_TOOLBELT].researched = true
-        player.print({"qsd-log-message.info-startup-research-toolbelt"}, COLOR_WHITE)
+        player.print({"qsd-log-message.info-startup-research-toolbelt"}, { color = COLOR_WHITE })
     else
-        player.print({"qsd-log-message.warning-research-toolbelt-disabled"}, COLOR_YELLOW)
+        player.print({"qsd-log-message.warning-research-toolbelt-disabled"}, { color = COLOR_YELLOW })
     end
 
     -- You Dun There Start Em Up
-    player.print({"qsd-log-message.info-character-init"}, COLOR_GREEN)
+    player.print({"qsd-log-message.info-character-init"}, { color = COLOR_GREEN })
 end)

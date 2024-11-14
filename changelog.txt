@@ -8,6 +8,7 @@ Date: 20??.??.?? ??:00:00+00:00
     - Removed spidertron remote. These are "free" now in Factorio 2.0.
     - Fixed missing "Spidertron" research in tech tree (for spidertron remote).
     - Marked mod "Krastorio2" INCOMPATIBLE with QSD.
+    - Fixed print commands not using colors correctly.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.2
