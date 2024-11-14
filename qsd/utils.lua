@@ -28,10 +28,10 @@ function configure_gear(target_player, gear_to_load, gear_loadout)
         for gear_name, gear_position_array in pairs(gear_group) do
             if gear_name == "fusion-reactor-equipment" then
                 if script.active_mods['space-age'] then
-                    target_player.print({"qsd-log-message.info-space-space-fusion"})
+                    target_player.print({"qsd-log-message.info-space-space-fusion"}, { color = COLOR_WHITE })
                 else
                     gear_name = "fission-reactor-equipment"
-                    target_player.print({"qsd-log-message.info-space-no-space-fission"})
+                    target_player.print({"qsd-log-message.info-space-no-space-fission"}, { color = COLOR_YELLOW })
                 end
             end
 
