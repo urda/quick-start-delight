@@ -121,3 +121,25 @@ else
         }
     })
 end
+
+if mods['space-age'] then
+    data:extend({
+        {
+            type = "bool-setting",
+            name = "qsd-setting-mech-armor-enabled",
+            setting_type = "runtime-global",
+            default_value = true
+        }
+    })
+else
+    data:extend({
+        {
+            type = "bool-setting",
+            name = "qsd-setting-mech-armor-enabled",
+            setting_type = "runtime-global",
+            default_value = false,
+            forced_value = false,
+            hidden = true
+        }
+    })
+end

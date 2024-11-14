@@ -54,7 +54,11 @@ script.on_event(defines.events.on_player_created, function(event)
     end
 
     -- Insert the Power armor MK2
-    armor_inventory.insert({name = "power-armor-mk2", count = 1})
+    if settings.global["qsd-setting-mech-armor-enabled"].value then
+        armor_inventory.insert({name = "mech-armor", count = 1})
+    else
+        armor_inventory.insert({name = "power-armor-mk2", count = 1})
+    end
 
     -- Insert the rest of the equipment into the armor
     configure_gear(player, character, CHARACTER_GEAR)

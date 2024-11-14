@@ -9,6 +9,7 @@ Date: 20??.??.?? ??:00:00+00:00
     - Fixed missing "Spidertron" research in tech tree (for spidertron remote).
     - Marked mod "Krastorio2" INCOMPATIBLE with QSD.
     - Fixed print commands not using colors correctly.
+    - For space age players, the option to use the `mech-armor`.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.2
