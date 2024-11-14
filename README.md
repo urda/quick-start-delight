@@ -11,7 +11,7 @@ Configures player equipment with:
 - Exoskeleton (x5)
 - Personal battery MK2 (x4)
 - Personal roboport MK2 (x4)
-- Portable fusion reactor (x2)
+- Portable fusion (or fission) reactor (x2)
 - Portable solar panel (x3)
 
 Configures a spidertron with equipment such that:
@@ -19,7 +19,7 @@ Configures a spidertron with equipment such that:
 - Exoskeleton (x1)
 - Personal battery MK2 (x4)
 - Personal roboport MK2 (x4)
-- Portable fusion reactor (x2)
+- Portable fusion (or fission) (x2)
 
 Places the following additional items in player inventory (with default counts):
 
