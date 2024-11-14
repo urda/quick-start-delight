@@ -35,14 +35,14 @@ help: # Show this help screen
 ########################################################################################################################
 
 .PHONY: debug
-debug:
+debug: # Show debug info about the environment.
 	@echo 'MOD_FULLNAME .... $(MOD_FULLNAME)'
 	@echo 'SHELL ........... $(SHELL)'
 	@echo 'VERSION_ID ...... $(VERSION_ID)'
 	@echo 'VERSION_REGEX ... $(VERSION_REGEX)'
 
 .PHONY: build
-build: # Build the mod package
+build: clean # Build the mod package
 	cd .. && \
 	zip -v ./$(PROJECT_NAME)/$(MOD_FULLNAME).zip -r ./$(PROJECT_NAME) -x $(MOD_ZIP_EXCLUDES) && \
 	cd ./$(PROJECT_NAME)
@@ -50,3 +50,9 @@ build: # Build the mod package
 .PHONY: clean
 clean: # Clean the project directory.
 	rm -rf $(CLEAN_TARGETS)
+
+.PHONY: run-mod-macos
+run-mod-macos: clean build # Build and run the mod (macOS)
+	rm ~/Library/Application\ Support/factorio/mods/quick*.zip && \
+	mv ./quick-start-delight*.zip ~/Library/Application\ Support/factorio/mods/ && \
+	open /Applications/factorio.app
