@@ -1,15 +1,26 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.1.3
-Date: 20??.??.?? ??:00:00+00:00
-  Other:
-    - Fixed build process to ignore `.DS_Store` files correctly.
-    - README updates.
-    - Mark `space-age` related mods as "optional"
+Version: 2.2.0
+Date: 2026.04.13 08:00:00+00:00
+  Features:
+    - Added quality research support. When the `quality` mod is present, QSD will research epic and legendary quality tiers.
+    - For space age players, the option to use the `mech-armor`.
+  Bugfixes:
+    - Fixed print commands not using colors correctly.
+    - Fixed `quality` and `mech-armor` settings being stuck as disabled after toggling mods between games.
+  Changes:
     - Removed spidertron remote. These are "free" now in Factorio 2.0.
     - Fixed missing "Spidertron" research in tech tree (for spidertron remote).
     - Marked mod "Krastorio2" INCOMPATIBLE with QSD.
-    - Fixed print commands not using colors correctly.
-    - For space age players, the option to use the `mech-armor`.
+    - Marked `space-age` related mods as "optional" dependencies.
+    - Updated minimum `base` mod version to `2.0.76`.
+    - Removed unused `elevated-rails` optional dependency.
+  Other:
+    - Refactored Lua modules to use local module pattern instead of globals.
+    - Standardized string quoting to single quotes across all Lua files.
+    - Fixed build process to ignore `.DS_Store` files correctly.
+    - Organized mod settings screen into logical groups using `order` property.
+    - Makefile enhancements and cleanup.
+    - README updates.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.2

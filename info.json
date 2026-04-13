@@ -1,16 +1,15 @@
 {
     "name": "quick-start-delight",
-    "version": "2.1.3",
+    "version": "2.2.0",
     "title": "Quick Start Delight",
     "author": "urda",
     "homepage": "https://github.com/urda/quick-start-delight",
     "contact": "foss@urda.engineering",
     "factorio_version": "2.0",
     "dependencies": [
-        "base >= 2.0.15",
-        "? space-age >= 2.0.15",
-        "? elevated-rails >= 2.0.15",
-        "? quality >= 2.0.15",
+        "base >= 2.0.76",
+        "? space-age >= 2.0.76",
+        "? quality >= 2.0.76",
         "! Krastorio2"
     ],
     "description": "Hit the ground running with a spidertron, robots, and more in your next game! This mod is meant for players who have already beaten the game at least once."

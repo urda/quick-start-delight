@@ -1,4 +1,4 @@
--- Copyright 2022 Peter Urda
+-- Copyright 2022-2026 Peter Urda
 --
 -- Licensed under the Apache License, Version 2.0 (the "License");
 -- you may not use this file except in compliance with the License.
@@ -13,12 +13,16 @@
 -- limitations under the License.
 --
 
+local mod_settings = {}
+
 -- Lookup starting inventory count settings
-PLAYER_LOADOUT_FROM_SETTINGS = {
-    ["big-electric-pole"] = settings.global["qsd-setting-big-electric-pole-size"].value,
-    ["construction-robot"] = settings.global["qsd-setting-construction-bot-size"].value,
-    ["radar"] = settings.global["qsd-setting-radar-size"].value,
-    ["repair-pack"] = settings.global["qsd-setting-repair-pack-size"].value,
-    ["small-lamp"] = settings.global["qsd-setting-lamp-size"].value,
-    ["steel-chest"] = settings.global["qsd-setting-steel-chest-size"].value,
+mod_settings.PLAYER_LOADOUT_FROM_SETTINGS = {
+    ['big-electric-pole'] = settings.global['qsd-setting-big-electric-pole-size'].value,
+    ['construction-robot'] = settings.global['qsd-setting-construction-bot-size'].value,
+    ['radar'] = settings.global['qsd-setting-radar-size'].value,
+    ['repair-pack'] = settings.global['qsd-setting-repair-pack-size'].value,
+    ['small-lamp'] = settings.global['qsd-setting-lamp-size'].value,
+    ['steel-chest'] = settings.global['qsd-setting-steel-chest-size'].value,
 }
+
+return mod_settings

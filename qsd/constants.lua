@@ -1,4 +1,4 @@
--- Copyright 2022 Peter Urda
+-- Copyright 2022-2026 Peter Urda
 --
 -- Licensed under the Apache License, Version 2.0 (the "License");
 -- you may not use this file except in compliance with the License.
@@ -13,23 +13,25 @@
 -- limitations under the License.
 --
 
+local constants = {}
+
 -- String Constants
 
-POWERED_KEY = "powered"
-TECH_TOOLBELT = "toolbelt"
-UNPOWERED_KEY = "unpowered"
+constants.POWERED_KEY = 'powered'
+constants.TECH_TOOLBELT = 'toolbelt'
+constants.UNPOWERED_KEY = 'unpowered'
 
 -- Color Constants
 
-COLOR_URDA   = {  0,  51, 153, 255}
-COLOR_GREEN  = {  0, 255,   0, 255}
-COLOR_RED    = {255,   0,   0, 255}
-COLOR_WHITE  = {255, 255, 255, 255}
-COLOR_YELLOW = {255, 255,   0, 255}
+constants.COLOR_URDA   = {  0,  51, 153, 255}
+constants.COLOR_GREEN  = {  0, 255,   0, 255}
+constants.COLOR_RED    = {255,   0,   0, 255}
+constants.COLOR_WHITE  = {255, 255, 255, 255}
+constants.COLOR_YELLOW = {255, 255,   0, 255}
 
 -- Array Constants
 
-BRAKING_TECHNOLOGY = {
+constants.BRAKING_TECHNOLOGY = {
     'braking-force-1',
     'braking-force-2',
     'braking-force-3',
@@ -39,13 +41,13 @@ BRAKING_TECHNOLOGY = {
     'braking-force-7',
 }
 
-MINING_TECHNOLOGY = {
+constants.MINING_TECHNOLOGY = {
     'mining-productivity-1',
     'mining-productivity-2',
     'mining-productivity-3',
 }
 
-RESEARCH_TECHNOLOGY = {
+constants.RESEARCH_TECHNOLOGY = {
     'research-speed-1',
     'research-speed-2',
     'research-speed-3',
@@ -54,7 +56,7 @@ RESEARCH_TECHNOLOGY = {
     'research-speed-6',
 }
 
-ROBOT_TECHNOLOGY = {
+constants.ROBOT_TECHNOLOGY = {
     'worker-robots-speed-1',
     'worker-robots-speed-2',
     'worker-robots-speed-3',
@@ -62,42 +64,42 @@ ROBOT_TECHNOLOGY = {
     'worker-robots-speed-5',
     'worker-robots-storage-1',
     'worker-robots-storage-2',
-    'worker-robots-storage-3'
+    'worker-robots-storage-3',
 }
 
 -- Complex Constants
 
-CHARACTER_GEAR = {
-    [POWERED_KEY] = {
-        ["battery-mk2-equipment"] = {
+constants.CHARACTER_GEAR = {
+    [constants.POWERED_KEY] = {
+        ['battery-mk2-equipment'] = {
             {8, 6},
             {9, 6},
             {8, 8},
             {9, 8},
         },
-        ["belt-immunity-equipment"] = {
+        ['belt-immunity-equipment'] = {
             {9, 0},
         },
-        ["exoskeleton-equipment"] = {
+        ['exoskeleton-equipment'] = {
             {0, 2},
             {2, 2},
             {4, 2},
             {6, 2},
             {8, 2},
         },
-        ["personal-roboport-mk2-equipment"] = {
+        ['personal-roboport-mk2-equipment'] = {
             {0, 0},
             {2, 0},
             {4, 0},
             {6, 0},
         },
     },
-    [UNPOWERED_KEY] = {
-        ["fusion-reactor-equipment"] = {
+    [constants.UNPOWERED_KEY] = {
+        ['fusion-reactor-equipment'] = {
             {0, 6},
             {4, 6},
         },
-        ["solar-panel-equipment"] = {
+        ['solar-panel-equipment'] = {
             {8, 0},
             {8, 1},
             {9, 1},
@@ -105,26 +107,28 @@ CHARACTER_GEAR = {
     },
 }
 
-SPIDER_GEAR = {
-    [POWERED_KEY] = {
-        ["battery-mk2-equipment"] = {
+constants.SPIDER_GEAR = {
+    [constants.POWERED_KEY] = {
+        ['battery-mk2-equipment'] = {
             {8, 4},
             {9, 4},
         },
-        ["exoskeleton-equipment"] = {
+        ['exoskeleton-equipment'] = {
             {8, 0},
         },
-        ["personal-roboport-mk2-equipment"] = {
+        ['personal-roboport-mk2-equipment'] = {
             {0, 4},
             {2, 4},
             {4, 4},
             {6, 4},
         },
     },
-    [UNPOWERED_KEY] = {
-        ["fusion-reactor-equipment"] = {
+    [constants.UNPOWERED_KEY] = {
+        ['fusion-reactor-equipment'] = {
             {0, 0},
             {4, 0},
         },
     },
 }
+
+return constants

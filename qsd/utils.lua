@@ -1,4 +1,4 @@
--- Copyright 2022 Peter Urda
+-- Copyright 2022-2026 Peter Urda
 --
 -- Licensed under the Apache License, Version 2.0 (the "License");
 -- you may not use this file except in compliance with the License.
@@ -13,32 +13,34 @@
 -- limitations under the License.
 --
 
-require("constants")
+local constants = require('qsd.constants')
+
+local utils = {}
 
 --- Configure an equipment grid given input specs.
 --
--- @usage configure_gear(character, CHARACTER_GEAR)
+-- @usage utils.configure_gear(player, character, CHARACTER_GEAR)
 --
 -- @param target_player The current player
 -- @param gear_to_load The target character, spidertron, or other equipment grid.
 -- @param gear_loadout The gear to load into the equipment grid.
 --
-function configure_gear(target_player, gear_to_load, gear_loadout)
+function utils.configure_gear(target_player, gear_to_load, gear_loadout)
     for gear_type, gear_group in pairs(gear_loadout) do
         for gear_name, gear_position_array in pairs(gear_group) do
-            if gear_name == "fusion-reactor-equipment" then
+            if gear_name == 'fusion-reactor-equipment' then
                 if script.active_mods['space-age'] then
-                    target_player.print({"qsd-log-message.info-space-space-fusion"}, { color = COLOR_WHITE })
+                    target_player.print({'qsd-log-message.info-space-space-fusion'}, { color = constants.COLOR_WHITE })
                 else
-                    gear_name = "fission-reactor-equipment"
-                    target_player.print({"qsd-log-message.info-space-no-space-fission"}, { color = COLOR_YELLOW })
+                    gear_name = 'fission-reactor-equipment'
+                    target_player.print({'qsd-log-message.info-space-no-space-fission'}, { color = constants.COLOR_YELLOW })
                 end
             end
 
-            for key, position in ipairs(gear_position_array) do
+            for _, position in ipairs(gear_position_array) do
                 local new_gear = gear_to_load.grid.put({name = gear_name, position = position})
 
-                if gear_type == POWERED_KEY then
+                if gear_type == constants.POWERED_KEY then
                     -- "Well, you don't give a toy without batteries."
                     new_gear.energy = new_gear.max_energy
                 end
@@ -48,23 +50,25 @@ function configure_gear(target_player, gear_to_load, gear_loadout)
 end
 
 --- Given a loadout specification, load a given target player's inventory.
---- Also deals with 0 and negative value item counts (Bugfix for 1.1.0 -> 1.1.1).
+--- Also deals with 0 and negative value item counts.
 --
--- @usage load_gear(gear_loadout, player, inventory)
+-- @usage utils.load_gear(gear_loadout, player, inventory)
 --
 -- @param loadout_specs The loadout specification to process.
 -- @param target_player The current player
 -- @param target_inventory The player's inventory
 --
-function load_gear(loadout_specs, target_player, target_inventory)
+function utils.load_gear(loadout_specs, target_player, target_inventory)
     for item_name, item_count in pairs(loadout_specs) do
         if item_count > 0 then
             target_inventory.insert({name = item_name, count = item_count})
-            target_player.print({"qsd-log-message.info-startup-inventory-added-generic", item_name, item_count}, COLOR_WHITE)
+            target_player.print({'qsd-log-message.info-startup-inventory-added-generic', item_name, item_count}, { color = constants.COLOR_WHITE })
         elseif item_count == 0 then
-            target_player.print({"qsd-log-message.warning-inventory-skipped-generic", item_name, item_count}, COLOR_YELLOW)
+            target_player.print({'qsd-log-message.warning-inventory-skipped-generic', item_name, item_count}, { color = constants.COLOR_YELLOW })
         else
-            target_player.print({"qsd-log-message.error-negative-inventory-count"}, COLOR_RED)
+            target_player.print({'qsd-log-message.error-negative-inventory-count'}, { color = constants.COLOR_RED })
         end
     end
 end
+
+return utils

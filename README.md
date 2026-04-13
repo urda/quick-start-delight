@@ -17,26 +17,35 @@ Configures player equipment with:
 Configures a spidertron with equipment such that:
 
 - Exoskeleton (x1)
-- Personal battery MK2 (x4)
+- Personal battery MK2 (x2)
 - Personal roboport MK2 (x4)
-- Portable fusion (or fission) (x2)
+- Portable fusion (or fission) reactor (x2)
 
 Places the following additional items in player inventory (with default counts):
 
 - Big Electric Pole (x50)
 - Construction robot (x200) (Half for the player, the other half for the spidertron)
 - Lamp (x200)
-- Spidertron (x1)
-- Spidertron Remote (x1)
 - Radar (x50)
-- Repair Pack (x50)
+- Repair Pack (x200)
+- Spidertron (x1)
 - Steel Chest (x50)
 
 Quick Start Delight also:
 
+- Completes braking force research.
+- Completes lab research speed research.
+- Completes mining productivity research.
 - Completes related robot storage and speed technology research.
-- Complete toolbelt research.
+- Completes toolbelt research.
 - Offers lots of configuration settings to adjust starting counts!
+
+Optional mod support:
+
+- When the `quality` mod is present, researches epic and legendary quality tiers.
+- When the `space-age` mod is present, offers the option to use mech-armor over power armor MK2.
+- Marked **INCOMPATIBLE** with:
+  - Krastorio2.
 
 # Working on the mod
 
